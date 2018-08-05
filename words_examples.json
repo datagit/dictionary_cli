@@ -1,0 +1,30 @@
+{
+    "ids": {
+        "657f8b8da628ef83cf69101b6817150a": 1,
+        "e5671794bf87ebab2a0d5e0ded530e68": 2
+    },
+    "1": {
+        "favourite": false,
+        "hit": 11,
+        "datetime_hit": "2018-08-05 11:20:14",
+        "datetime_created": "2018-08-05 11:20:14",
+        "datetime_updated": "2018-08-05 11:20:14",
+        "word": "help",
+        "examples": [
+            "can i help you",
+            "can i help you11"
+        ]
+    },
+    "2": {
+        "favourite": true,
+        "hit": 2,
+        "datetime_hit": "2018-08-05 11:20:53",
+        "datetime_created": "2018-08-05 11:20:53",
+        "datetime_updated": "2018-08-05 11:20:53",
+        "word": "absent",
+        "examples": [
+            "1",
+            "1-"
+        ]
+    }
+}
