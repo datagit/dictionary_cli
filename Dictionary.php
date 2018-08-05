@@ -22,23 +22,25 @@ class Dictionary extends Repository
 
     public function editWord($params)
     {
+        //check validation here
         $params = array(
             'word' => $params['w'],
             'examples' => empty($params['e']) ? '' : $params['e'],
             'favorite' => isset($params['f']) ? boolval($params['f']) : false,
         );
         $word_info = $this->edit($params);
-        return $this->toJson($word_info);
+        return $word_info;
     }
 
     public function addFavourite($params)
     {
+        //check validation here
         $params = array(
             'word' => $params['w'],
             'favorite' => true,
         );
         $word_info = $this->edit($params);
-        return $this->toJson($word_info);
+        return $word_info;
     }
 
     public function removeFavourite($params)
@@ -48,7 +50,7 @@ class Dictionary extends Repository
             'favorite' => false,
         );
         $word_info = $this->edit($params);
-        return $this->toJson($word_info);
+        return $word_info;
     }
 
     public function listAll($params)
@@ -57,7 +59,7 @@ class Dictionary extends Repository
             'sort_type' => $params['s'],
         );
         $data = $this->getList($params);
-        return $this->toJson($data);
+        return $data;
     }
 
     public function listByFavourite($params)
@@ -66,7 +68,7 @@ class Dictionary extends Repository
             'sort_type' => $params['s'],
         );
         $data = $this->getList($params);
-        return $this->toJson($data);
+        return $data;
     }
 
     public function listByRecent()
@@ -88,7 +90,7 @@ class Dictionary extends Repository
             'term' => $params['t'],
         );
         $data = $this->findByTerm($params);
-        return $this->toJson($data);
+        return $data;
     }
 
 

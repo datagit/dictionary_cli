@@ -6,6 +6,7 @@
  * Time: 4:24 PM
  */
 
+require_once 'Json.php';
 require_once 'Repository.php';
 require_once 'Dictionary.php';
 
@@ -37,4 +38,4 @@ $method = $options['m'];
 
 $test = new Dictionary();
 $method = $test->get_method($options['m']);
-echo $method($options) . "\n";
+print_r($method($options) . "\n");

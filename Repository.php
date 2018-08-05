@@ -6,10 +6,9 @@
  * Time: 4:24 PM
  */
 
-class Repository
+class Repository extends Json
 {
     const LIMIT = 5;
-    const DATA_FILE = 'words_examples.json';
     private $_words_examples = array();
 
     /**
@@ -17,38 +16,8 @@ class Repository
      */
     public function __construct()
     {
-        $this->_words_examples = $this->_init();
-    }
-
-    private function _init()
-    {
-        $array = $this->_toArray(file_get_contents(self::DATA_FILE));
-        if (empty($array)) {
-            return array();
-        }
-        return $array;
-    }
-
-    private function _toArray($json_data)
-    {
-        return json_decode($json_data, true);
-    }
-
-    public function toJson(array $data)
-    {
-        if (empty($data)) {
-            return '';
-        }
-        return json_encode($data, JSON_PRETTY_PRINT);
-    }
-
-    private function _save()
-    {
-        $json_data = $this->toJson($this->_words_examples);
-        if(!file_put_contents(self::DATA_FILE, $json_data)) {
-            return false;
-        }
-        return true;
+        parent::__construct();
+        $this->_words_examples = $this->toArray();
     }
 
     private function _update($id, $word_info)
@@ -56,12 +25,15 @@ class Repository
         $this->_words_examples['ids'][$word_info['hash_id']] = $id;
         unset($word_info['hash_id']);
         $this->_words_examples[$id] = $word_info;
-        $this->_save();
+        $this->save($this->_words_examples);
         return $word_info;
     }
 
-    private function generateHashId($term)
+    private function _generateHashId($term)
     {
+        if (empty(trim($term))) {
+            throw new Exception('Please input term');
+        }
         return md5(strtolower(trim($term)));
     }
 
@@ -93,9 +65,9 @@ class Repository
         return array();
     }
 
-    private function findExactWord($word)
+    private function _findExactWord($word)
     {
-        $hash_id = $this->generateHashId($word);
+        $hash_id = $this->_generateHashId($word);
         $word_info = $this->_findByHashId($hash_id);
         return array($hash_id, $word_info);
     }
@@ -109,7 +81,7 @@ class Repository
         if (empty($id)) {
             $id = $this->_getLastNumberId();
         }
-        $word_info['favourite'] = false;
+        $word_info['favorite'] = false;
         $word_info['hit'] = 1;
         $dt = new DateTime();
         $current_datetime = $dt->format('Y-m-d H:i:s');
@@ -119,7 +91,7 @@ class Repository
         foreach ($params as $key => $value) {
             $word_info[$key] = $value;
             if ($key == 'word') {
-                $word_info['hash_id'] = $this->generateHashId($value);
+                $word_info['hash_id'] = $this->_generateHashId($value);
             }
         }
         return array($id, $word_info);
@@ -134,10 +106,10 @@ class Repository
     public function add($params = array())
     {
         //find by id
-        list($hash_id, $word_info) = $this->findExactWord($params['word']);
+        list($hash_id, $word_info) = $this->_findExactWord($params['word']);
         $id = 0;
-        if (!empty($params['favourite'])) {
-            $append_info['favourite'] = $params['favourite'];
+        if (!empty($params['favorite'])) {
+            $append_info['favorite'] = $params['favorite'];
         }
         if (empty($word_info)) {
             //add new word
@@ -164,11 +136,8 @@ class Repository
 
     public function edit($params = array())
     {
-        if (empty($params['word'])) {
-            return array();
-        }
         //find by id
-        list($hash_id, $word_info) = $this->findExactWord($params['word']);
+        list($hash_id, $word_info) = $this->_findExactWord($params['word']);
         if (empty($word_info)) {
             //create new word_info
             $word_info = $this->add($params['word'], $params['examples']);
@@ -180,8 +149,8 @@ class Repository
         if (!empty($params['word'])) {
             $word_info['word'] = $params['word'];
         }
-        if (isset($params['favourite'])) {
-            $word_info['favourite'] = boolval($params['favourite']);
+        if (isset($params['favorite'])) {
+            $word_info['favorite'] = $params['favorite'];
         }
         $word_info['hit'] = $word_info['hit'] + 1;
         //save
@@ -217,8 +186,6 @@ class Repository
         return $temp;
     }
 
-
-
     public function getList($params = array())
     {
         $temp = $this->_words_examples;
@@ -228,20 +195,20 @@ class Repository
         return $temp;
     }
 
-    public function getFavourite($params = array())
+    public function getfavorite($params = array())
     {
         $temp = $this->_words_examples;
         unset($temp['ids']);
-        $temp = $this->_filterFavourite($temp);
+        $temp = $this->_filterfavorite($temp);
         $temp = $this->_sortBy($temp, $params['sort_type']);
         $temp = array_slice($temp, 0, self::LIMIT);
         return $temp;
     }
 
-    private function _filterFavourite($data)
+    private function _filterfavorite($data)
     {
         foreach ($data as $id => $values) {
-            if ($values['favourite'] == false) {
+            if ($values['favorite'] == false) {
                 unset($data[$id]);
             }
         }
@@ -250,19 +217,19 @@ class Repository
 
     private function _sortBy($data, $sort_type)
     {
-        $favourite  = array_column($data, 'favourite');
+        $favorite  = array_column($data, 'favorite');
         $hit  = array_column($data, 'hit');
         $word  = array_column($data, 'word');
 
         switch ($sort_type) {
             case 1:
-                array_multisort($favourite, SORT_ASC, $hit, SORT_DESC, $word, SORT_ASC, $data);
+                array_multisort($favorite, SORT_ASC, $hit, SORT_DESC, $word, SORT_ASC, $data);
                 break;
             case 2:
-                array_multisort($hit, SORT_DESC, $favourite, SORT_ASC, $word, SORT_ASC, $data);
+                array_multisort($hit, SORT_DESC, $favorite, SORT_ASC, $word, SORT_ASC, $data);
                 break;
             case 3:
-                array_multisort($word, SORT_ASC, $favourite, SORT_ASC, $hit, SORT_DESC, $data);
+                array_multisort($word, SORT_ASC, $favorite, SORT_ASC, $hit, SORT_DESC, $data);
                 break;
         }
         return $data;
