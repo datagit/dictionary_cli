@@ -31,7 +31,7 @@ class Json
     {
         $this->_updateJsonDataFrom($data_array);
         if(!file_put_contents(self::DATA_FILE, $this->_json_data)) {
-            return false;
+            throw new Exception(sprintf('Can not save file with path %s', self::DATA_FILE));
         }
         return true;
     }
