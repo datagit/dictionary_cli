@@ -1,14 +1,42 @@
+/*
+{
+        "657f8b8da628ef83cf69101b6817150a": {
+            "index": 1,
+            "favourite": false,
+            "hit": 11,
+            "datetime_hit": "2018-08-05 11:20:14",
+            "datetime_created": "2018-08-05 11:20:14",
+            "datetime_updated": "2018-08-05 11:20:14",
+            "word": "help",
+            "examples": [
+                "can i help you",
+                "can i help you11"
+            ]
+        },
+        "e5671794bf87ebab2a0d5e0ded530e68": {
+            "index": 2,
+            "favourite": true,
+            "hit": 2,
+            "datetime_hit": "2018-08-05 11:20:53",
+            "datetime_created": "2018-08-05 11:20:53",
+            "datetime_updated": "2018-08-05 11:20:53",
+            "word": "absent",
+            "examples": [
+                "1",
+                "1-"
+            ]
+        }
+    }
+*/
 {
   "1": {
     "w": "help",
     "f": true,
     "h": 10,
     "dh": "2018-08-08 11:00:00",
-    "dc": "2018-08-08 11:00:00",
-    "du": "2018-08-08 11:00:00",
     "e": [
       "can i help you?",
-      "help me",
+      "help me"
     ]
   }
 }
