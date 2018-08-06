@@ -1,0 +1,47 @@
+{
+    "hash_id": {
+        "index": 1,
+        "hit": 1,
+        "favorite": true,
+        "ch": "2018-08-05 23:00:00",
+        "cd": "2018-08-05 23:00:00",
+        "ud": "2018-08-05 23:00:00",
+        "word": "wwww",
+        "example": [
+            "e1",
+            "e2"
+        ],
+    }
+}
+Json
+    $_json_data = ''
+    toArray
+    toJson
+    overrideJsonDataFromArray
+    save
+Word
+    $_word_info = array()
+    init($params) return Word
+    updateByParams($word_info, $params) return Word
+    updateHit($word_info) return Word
+    updateFavorite($word_info) return Word
+Dictionary
+    $_word_info_list = array()
+    isExisted
+    addWord
+        add new
+        edit
+    editWord
+        edit info
+        edit only hit
+        edit only favorite
+    sortBySortType
+        1:
+        2:
+        3:
+    getList
+        sort_type
+    findByTerm
+        sort_type
+
+
