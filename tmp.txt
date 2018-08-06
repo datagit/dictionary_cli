@@ -22,9 +22,9 @@ Json
 Word
     $_word_info = array()
     init($params) return Word
-    updateByParams($word_info, $params) return Word
-    updateHit($word_info) return Word
-    updateFavorite($word_info) return Word
+    updateByParams($hash_id, $example, $hit, $params) return Word
+    updateHit($hash_id) return Word
+    updateFavorite($hash_id) return Word
 Dictionary
     $_word_info_list = array()
     isExisted

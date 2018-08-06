@@ -8,7 +8,9 @@
 
 require_once 'Json.php';
 require_once 'Repository.php';
+require_once 'Word.php';
 require_once 'Dictionary.php';
+require_once 'DictionaryCli.php';
 
 $options = getopt("m:weft");
 // Script example.php
@@ -34,8 +36,7 @@ if (empty($options['m'])) {
     die;
 }
 
-$method = $options['m'];
-
-$test = new Dictionary();
-$method = $test->get_method($options['m']);
-print_r($method($options) . "\n");
+$test = new DictionaryCli();
+$method = $test->getMethod($options['m']);
+print_r($method($options));
+echo "\n";

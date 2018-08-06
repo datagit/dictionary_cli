@@ -8,7 +8,7 @@
 
 class Json
 {
-    const DATA_FILE = 'words_examples.json';
+    const DATA_FILE = 'word_list.json';
     private $_json_data = '';
 
     /**
