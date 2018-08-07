@@ -68,20 +68,26 @@ class Dictionary extends Json
         return $data;
     }
 
+
     public function editWord($params)
     {
-
+        if (empty($params)) {
+            return array();
+        }
+//        $word = new Word();
+//        $word_info = $word->updateByParams($word_info, $params);
+//        $hash_id = $word_info['hash_id'];
+//        unset($word_info['hash_id']);
+//        $this->_word_info_list[$hash_id] = $word_info;
+//        return $word_info;
     }
 
-    public function editWord2($word_info, $params)
+    private function _save($word_info)
     {
-        $word = new Word();
-        $word_info = $word->updateByParams($word_info, $params);
         $hash_id = $word_info['hash_id'];
         unset($word_info['hash_id']);
         $this->_word_info_list[$hash_id] = $word_info;
-        $this->save($this->_word_info_list);
-        return $word_info;
+        return $this->save($this->_word_info_list);
     }
 
     public function addWord($params)
@@ -90,13 +96,11 @@ class Dictionary extends Json
         $word_info = $word->init($params);
         if (!$this->_isExisted($word_info)) {
             $word_info['index'] = $this->_getIndex();
-            $hash_id = $word_info['hash_id'];
-            unset($word_info['hash_id']);
-            $this->_word_info_list[$hash_id] = $word_info;
-            $this->save($this->_word_info_list);
-            return $word_info;
+        } else {
+            $word_info = $word->mergeParams($word_info, $params);
         }
-        return $this->editWord($word_info, $params);
+        $this->_save($word_info);
+        return $word_info;
     }
 
     public function getList($sort_type)

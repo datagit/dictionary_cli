@@ -51,7 +51,7 @@ class Word
         return $this->_word_info;
     }
 
-    public function updateByParams(array $word_info, array $params = array())
+    public function mergeParams(array $word_info, array $params = array())
     {
         $word_info['hit']++;
         $dt = new DateTime();

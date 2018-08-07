@@ -22,26 +22,26 @@ Json
 Word
     $_word_info = array()
     init($params) return Word
-    updateByParams($hash_id, $example, $hit, $params) return Word
-    updateHit($hash_id) return Word
-    updateFavorite($hash_id) return Word
+    mergeParams($word_info, $params) return Word
 Dictionary
     $_word_info_list = array()
-    isExisted
-    addWord
+
+    findByHashId($hash_id) return word_info
+    isExisted($word) return boolean
+    addWord($params) return word_info
         add new
-        edit
-    editWord
-        edit info
+        update fields
+    editWord($params) return word_info
+        edit example
         edit only hit
         edit only favorite
-    sortBySortType
+    sortBySortType($data, $sort_type)  return data
         1:
         2:
         3:
-    getList
+    getList($params)
         sort_type
-    findByTerm
+    findByTerm($params)
         sort_type
 
 
