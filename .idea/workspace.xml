@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5e4dc3fb-c9d6-4d00-9cc9-e901e2a2b5a1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dictionary.php" afterPath="$PROJECT_DIR$/Dictionary.php" />
-      <change beforePath="$PROJECT_DIR$/tmp.txt" afterPath="$PROJECT_DIR$/doc_design_feature.txt" />
+      <change beforePath="$PROJECT_DIR$/DictionaryCli.php" afterPath="$PROJECT_DIR$/DictionaryCli.php" />
+      <change beforePath="$PROJECT_DIR$/cli.php" afterPath="$PROJECT_DIR$/cli.php" />
+      <change beforePath="$PROJECT_DIR$/word_list.json" afterPath="$PROJECT_DIR$/word_list.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doc_design_feature.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="doc_design_feature.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doc_design_feature.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
@@ -41,8 +42,8 @@
       <file leaf-file-name="Dictionary.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dictionary.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -51,8 +52,8 @@
       <file leaf-file-name="DictionaryCli.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DictionaryCli.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-143">
-              <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="19" />
+            <state relative-caret-position="217">
+              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -61,7 +62,7 @@
       <file leaf-file-name="Word.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Word.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-308">
+            <state relative-caret-position="450">
               <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
               <folding />
             </state>
@@ -81,8 +82,18 @@
       <file leaf-file-name="word_list.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/word_list.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="675">
+              <caret line="45" column="10" lean-forward="true" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cli.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cli.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -101,8 +112,8 @@
       <find>favourite</find>
       <find>toArray</find>
       <find>_generateHashId</find>
-      <find>favorite</find>
       <find>overrideJsonDataFromArray</find>
+      <find>favorite</find>
     </findStrings>
     <replaceStrings>
       <replace>findExactWord</replace>
@@ -132,11 +143,11 @@
         <option value="$PROJECT_DIR$/dcli.php" />
         <option value="$PROJECT_DIR$/tmp.txt" />
         <option value="$PROJECT_DIR$/Word.php" />
-        <option value="$PROJECT_DIR$/cli.php" />
-        <option value="$PROJECT_DIR$/DictionaryCli.php" />
         <option value="$PROJECT_DIR$/word_list.json" />
         <option value="$PROJECT_DIR$/Dictionary.php" />
         <option value="$PROJECT_DIR$/doc_design_feature.txt" />
+        <option value="$PROJECT_DIR$/DictionaryCli.php" />
+        <option value="$PROJECT_DIR$/cli.php" />
       </list>
     </option>
   </component>
@@ -279,12 +290,12 @@
       <option name="presentableId" value="Default" />
       <updated>1533374474710</updated>
       <workItem from="1533374475812" duration="33767000" />
-      <workItem from="1533632371320" duration="5523000" />
+      <workItem from="1533632371320" duration="6802000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42273000" />
+    <option name="totallyTimeSpent" value="43552000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -335,7 +346,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/DictionaryCli.php</url>
-          <line>18</line>
+          <line>23</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -727,40 +738,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Word.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-308">
+        <state relative-caret-position="450">
           <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/word_list.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dictionary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DictionaryCli.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-143">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cli.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -777,6 +756,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word_list.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="10" lean-forward="true" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dictionary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DictionaryCli.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cli.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
           <folding />
         </state>
       </provider>

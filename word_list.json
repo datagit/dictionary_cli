@@ -22,5 +22,41 @@
         ],
         "favorite": true,
         "index": 2
+    },
+    "5aee9dbd2a188839105073571bee1b1f": {
+        "hit": 1,
+        "c": "2018-08-07 10:36:16",
+        "u": "2018-08-07 10:36:16",
+        "word": "editor",
+        "hash_id": "5aee9dbd2a188839105073571bee1b1f",
+        "examples": [
+            "He has been our chief for 3 years."
+        ],
+        "favorite": false,
+        "index": 3
+    },
+    "59417166c47f7e6b70d1a6701bf4efdd": {
+        "hit": 1,
+        "c": "2018-08-07 10:37:20",
+        "u": "2018-08-07 10:37:20",
+        "word": "motor",
+        "hash_id": "59417166c47f7e6b70d1a6701bf4efdd",
+        "examples": [
+            "he's trying to fix a motor."
+        ],
+        "favorite": false,
+        "index": 4
+    },
+    "d7f14867431072dff09601a51d37cc0e": {
+        "hit": 1,
+        "c": "2018-08-07 10:49:25",
+        "u": "2018-08-07 10:49:25",
+        "word": " persuade",
+        "hash_id": "d7f14867431072dff09601a51d37cc0e",
+        "examples": [
+            "It's difficult to persuade him to sign the contract."
+        ],
+        "favorite": false,
+        "index": 5
     }
 }
