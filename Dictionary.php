@@ -28,12 +28,6 @@ class Dictionary extends Json
         return isset($this->_word_info_list[$word_info['hash_id']]);
     }
 
-    private function _findHashId($word)
-    {
-        $w = new Word();
-        return $w->generateHashId($word);
-    }
-
     private function _getByHashId($hash_id) {
         if (isset($this->_word_info_list[$hash_id])) {
             return $this->_word_info_list[$hash_id];
@@ -59,10 +53,19 @@ class Dictionary extends Json
 
         switch ($sort_type) {
             case 1:
-                array_multisort($favorite, SORT_ASC, $hit, SORT_DESC, $word, SORT_ASC, $index, SORT_ASC, $updated, SORT_ASC, $data);
+                array_multisort($favorite, SORT_ASC, $hit, SORT_DESC, $word, SORT_ASC, $index, SORT_ASC, $updated, SORT_ASC, $updated, SORT_ASC, $data);
+                break;
+            case 2:
+                array_multisort($word, SORT_ASC, $favorite, SORT_ASC, $hit, SORT_DESC, $index, SORT_ASC, $updated, SORT_ASC, $updated, SORT_ASC, $data);
+                break;
+            case 3:
+                array_multisort($index, SORT_ASC, $favorite, SORT_ASC, $hit, SORT_DESC, $word, SORT_ASC, $index, SORT_ASC, $updated, SORT_ASC, $data);
+                break;
+            case 4:
+                array_multisort($updated, SORT_ASC,$favorite, SORT_ASC, $hit, SORT_DESC, $word, SORT_ASC, $index, SORT_ASC, $updated, SORT_ASC, $data);
                 break;
             default:
-                array_multisort($hit, SORT_DESC, $favorite, SORT_ASC, $word, SORT_ASC, $index, SORT_ASC, $updated, SORT_ASC, $data);
+                array_multisort($hit, SORT_DESC, $favorite, SORT_ASC, $word, SORT_ASC, $index, SORT_ASC, $updated, SORT_ASC, $updated, SORT_ASC, $data);
                 break;
         }
         return $data;
@@ -74,18 +77,21 @@ class Dictionary extends Json
         if (empty($params)) {
             return array();
         }
-//        $word = new Word();
-//        $word_info = $word->updateByParams($word_info, $params);
-//        $hash_id = $word_info['hash_id'];
-//        unset($word_info['hash_id']);
-//        $this->_word_info_list[$hash_id] = $word_info;
-//        return $word_info;
+        $word = new Word();
+        $hash_id = $word->generateHashId($params['word']);
+        $word_info = $this->_getByHashId($hash_id);
+        if (empty($word_info)) {
+            return array();
+        }
+        $word_info['hash_id'] = $hash_id;
+        $word_info = $word->mergeParams($word_info, $params);
+        $this->_save($word_info);
+        return $word->output($word_info);
     }
 
     private function _save($word_info)
     {
         $hash_id = $word_info['hash_id'];
-        unset($word_info['hash_id']);
         $this->_word_info_list[$hash_id] = $word_info;
         return $this->save($this->_word_info_list);
     }
@@ -100,7 +106,7 @@ class Dictionary extends Json
             $word_info = $word->mergeParams($word_info, $params);
         }
         $this->_save($word_info);
-        return $word_info;
+        return $word->output($word_info);
     }
 
     public function getList($sort_type)
@@ -108,7 +114,12 @@ class Dictionary extends Json
         $word_info_list = $this->_word_info_list;
         $word_info_list = $this->_sortBySortType($word_info_list, $sort_type);
         $word_info_list = array_slice($word_info_list, 0, self::LIMIT);
-        return $word_info_list;
+        $word = new Word();
+        $output = array();
+        foreach ($word_info_list as $word_info) {
+            $output[] = $word->output($word_info);
+        }
+        return $output;
     }
 
     public function findByTerm($term, $sort_type)
@@ -133,7 +144,12 @@ class Dictionary extends Json
         }
         $word_info_list = $this->_sortBySortType($word_info_list, $sort_type);
         $word_info_list = array_slice($word_info_list, 0, self::LIMIT);
-        return $word_info_list;
+        $word = new Word();
+        $output = array();
+        foreach ($word_info_list as $word_info) {
+            $output[] = $word->output($word_info);
+        }
+        return $output;
     }
 
 }

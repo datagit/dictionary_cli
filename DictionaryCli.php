@@ -10,6 +10,7 @@ class DictionaryCli
 {
     public function add($params)
     {
+        //check validation here
         $params = array(
             'word' => $params['w'],
             'examples' => empty($params['e']) ? array() : array($params['e']),
@@ -21,6 +22,7 @@ class DictionaryCli
 
     public function edit($params)
     {
+        //check validation here
         $params = array(
             'word' => $params['w'],
             'examples' => empty($params['e']) ? array() : array($params['e']),
@@ -30,11 +32,17 @@ class DictionaryCli
         return $d->editWord($params);
     }
 
-    public function getMethod($method){
-        $object = $this;
-        return function() use($object, $method){
-            $args = func_get_args();
-            return call_user_func_array(array($object, $method), $args);
-        };
+    public function get($params)
+    {
+        //check validation here
+        $d = new Dictionary();
+        return $d->getList($params['s']);
+    }
+
+    public function find($params)
+    {
+        //check validation here
+        $d = new Dictionary();
+        return $d->findByTerm($params['w'], $params['s']);
     }
 }

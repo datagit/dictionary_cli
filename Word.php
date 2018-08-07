@@ -6,17 +6,17 @@
  * Time: 10:38 PM
  */
 /*
-"hash_id": {
-        "index": 1,
+"ab86a1e1ef70dff97959067b723c5c24": {
         "hit": 1,
-        "favorite": true,
-        "c": "2018-08-05 23:00:00",
-        "u": "2018-08-05 23:00:00",
-        "word": "wwww",
-        "example": [
-            "e1",
-            "e2"
+        "c": "2018-08-07 10:09:11",
+        "u": "2018-08-07 10:09:11",
+        "word": "me",
+        "hash_id": "ab86a1e1ef70dff97959067b723c5c24",
+        "examples": [
+            "m1"
         ],
+        "favorite": true,
+        "index": 2
     }
 
  $_word_info = array()
@@ -26,6 +26,19 @@
 class Word
 {
     private $_word_info = array();
+
+    public function output($word_info)
+    {
+        return array(
+            'w' => $word_info['word'],
+            'e' => $word_info['examples'],
+            'f' => $word_info['favorite'],
+            'h' => $word_info['hit'],
+            'c' => $word_info['c'],
+            'u' => $word_info['u'],
+            'i' => $word_info['index'],
+        );
+    }
 
     public function generateHashId($term)
     {
@@ -56,14 +69,15 @@ class Word
         $word_info['hit']++;
         $dt = new DateTime();
         $current_datetime = $dt->format('Y-m-d H:i:s');
-        $this->_word_info['u'] = $current_datetime;
+        $word_info['u'] = $current_datetime;
         foreach ($params as $key => $value) {
             if ($key == 'word') {
                 continue;
             }
-            $word_info[$key] = $value;
             if ($key == 'examples') {
-                $word_info['examples'] = array_unique(array_merge($word_info['examples'], $params['examples']));
+                $word_info[$key] = array_unique(array_merge($word_info[$key], $params[$key]));
+            } else {
+                $word_info[$key] = $value;
             }
         }
         $this->_word_info = $word_info;
