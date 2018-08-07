@@ -17,7 +17,7 @@ Json
     $_json_data = ''
     toArray
     toJson
-    overrideJsonDataFromArray
+    _updateJsonDataFrom(array) return json_text
     save
 Word
     $_word_info = array()
@@ -26,7 +26,7 @@ Word
 Dictionary
     $_word_info_list = array()
 
-    findByHashId($hash_id) return word_info
+    findByExactWord($word) return word_info
     isExisted($word) return boolean
     addWord($params) return word_info
         add new
@@ -39,9 +39,10 @@ Dictionary
         1:
         2:
         3:
-    getList($params)
+    getList($params) return array
         sort_type
-    findByTerm($params)
+    findByTerm($params) return array
         sort_type
 
-
+DictionaryCli
+    check validation input

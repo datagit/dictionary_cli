@@ -19,7 +19,6 @@ class Dictionary extends Json
         $this->_word_info_list = $this->toArray();
     }
 
-
     private function _isExisted($word_info)
     {
         if (empty($this->_word_info_list)) {
