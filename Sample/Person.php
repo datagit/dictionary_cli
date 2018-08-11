@@ -6,8 +6,11 @@
  * Time: 10:58 AM
  */
 
-class NotHandingErrors
+class Person
 {
+    const DISPLAY_TYPE_1 = 1;
+    const DISPLAY_TYPE_2 = 2;
+    const DISPLAY_TYPE_3 = 3;
 
     /**
      * @param $value
@@ -40,10 +43,10 @@ class NotHandingErrors
         if ($value) {
             list($first_name, $last_name) = array_map('trim', $value);
             switch ($display_type) {
-                case 1:
+                case Person::DISPLAY_TYPE_1:
                     $display = sprintf("First name: %s\nLast name: %s\n", $first_name, $last_name);
                     break;
-                case 2:
+                case Person::DISPLAY_TYPE_2:
                     $display = sprintf("*First name: [%s]*Last name: [%s]\n", $first_name, $last_name);
                     break;
                 default:
@@ -55,8 +58,8 @@ class NotHandingErrors
     }
 }
 
-$n = new NotHandingErrors();
+$n = new Person();
 $n->displayName('  ');
-$n->displayName('dat, dao');
-$n->displayName('dat1, dao1', 1);
-$n->displayName('dat2, dao2', 2);
+$n->displayName('dat, dao', Person::DISPLAY_TYPE_1);
+$n->displayName('dat1, dao1', Person::DISPLAY_TYPE_2);
+$n->displayName('dat2, dao2', Person::DISPLAY_TYPE_3);
