@@ -15,6 +15,8 @@ class Sample
 		'created',	//datetime
 		'updated',	//datetime
 	);
+
+	private $_data = array();
 	
 	public function create(array $params)
 	{
@@ -22,9 +24,9 @@ class Sample
 			return array();
 		}
 		foreach($this->_fields as $key) {
-			$fields[$key] = $params[$key];
+            $this->_data[$key] = $params[$key];
 		}
-		return $fields;
+		return $this->_data;
 	}
 	
 	public function update(array $fields, array $params)
@@ -34,19 +36,20 @@ class Sample
 		}
 		foreach($this->_fields as $key) {
 			switch(gettype($params[$key])) {
-				case 'array': 
-					$fields[$key] = array_unique(array_merge($fields[$key], $params[$key]));
+				case 'array':
+				    //append
+                    $this->_data[$key] = array_unique(array_merge($fields[$key], $params[$key]));
 					break;
 				case 'string':
 				case 'integer':
 				case 'NULL': 
 				case 'boolean': 
-				case 'double': 
-					$fields[$key] = $params[$key];
+				case 'double':
+                $this->_data[$key] = $params[$key];
 					break;
 			}
 		}
-		return $fields;
+		return $this->_data;
 	} 
 }
 
