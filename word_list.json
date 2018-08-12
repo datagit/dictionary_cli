@@ -48,15 +48,26 @@
         "index": 4
     },
     "d7f14867431072dff09601a51d37cc0e": {
-        "hit": 1,
-        "c": "2018-08-07 10:49:25",
-        "u": "2018-08-07 10:49:25",
-        "word": " persuade",
+        "hit": 2,
+        "c": "2018-08-12 06:01:59",
+        "u": "2018-08-12 06:02:42",
+        "word": "persuade",
         "hash_id": "d7f14867431072dff09601a51d37cc0e",
         "examples": [
-            "It's difficult to persuade him to sign the contract."
+            "eeee"
+        ],
+        "favorite": true
+    },
+    "657f8b8da628ef83cf69101b6817150a": {
+        "hit": 1,
+        "c": "2018-08-12 05:47:16",
+        "u": "2018-08-12 05:47:16",
+        "word": "help",
+        "hash_id": "657f8b8da628ef83cf69101b6817150a",
+        "examples": [
+            "can i help you"
         ],
         "favorite": false,
-        "index": 5
+        "index": 6
     }
 }

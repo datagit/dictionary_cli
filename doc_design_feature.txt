@@ -1,11 +1,11 @@
 {
     "hash_id": {
-        "index": 1,
-        "hit": 1,
-        "favorite": true,
-        "ch": "2018-08-05 23:00:00",
-        "cd": "2018-08-05 23:00:00",
-        "ud": "2018-08-05 23:00:00",
+        "hash_id": "5aee9dbd2a188839105073571bee1b1f",
+        "index": 1,                 //order inputted
+        "hit": 1,                   //number search
+        "favorite": true,           //is favourite
+        "c": "2018-08-05 23:00:00", //created datetime
+        "u": "2018-08-05 23:00:00", //updated datetime
         "word": "wwww",
         "example": [
             "e1",
@@ -15,34 +15,62 @@
 }
 Json
     $_json_data = ''
-    toArray
-    toJson
-    _updateJsonDataFrom(array) return json_text
-    save
+    public function toArray() {
+        //return array
+    }
+    public function toJson() {
+        //return string json data
+    }
+    private function _updateJsonDataFrom(array $params = array('word', 'example', 'favourite')) {
+        //return string json data
+    }
+    public function save() {
+        //return boolean
+    }
 Word
     $_word_info = array()
-    init($params) return Word
-    mergeParams($word_info, $params) return Word
+    public function init(array $params = array('word', 'example', 'favourite')) {
+        //return array
+    }
+    public function mergeParams(array $word_info, array $params) {
+        //return array
+    }
+    public function generateHashId(string word) {
+        //return md5 hash
+    }
 Dictionary
     $_word_info_list = array()
 
-    findByExactWord($word) return word_info
-    isExisted($word) return boolean
-    addWord($params) return word_info
-        add new
-        update fields
-    editWord($params) return word_info
+    private function _findByExactWord($word) {
+        //return array
+    }
+    private function _sortBySortType($data, $sort_type) {
+        //return array
+    }
+    private function _isExisted(string $word) {
+        //return boolean
+    }
+    public function addWord(array $params = array('word', 'example', 'favourite') {
+        //return array
+    }
+    public function add(array $params = array('word', 'example', 'favourite')) {
+        //return array
+    }
+    public function update(array $params = array('word', 'example', 'favourite') {
+        //return array
+    }
+    public function editWord(array $params) return word_info
         edit example
         edit only hit
         edit only favorite
-    sortBySortType($data, $sort_type)  return data
-        1:
-        2:
-        3:
-    getList($params) return array
-        sort_type
-    findByTerm($params) return array
-        sort_type
+    public function getList(array $params = array('sort_type')) {
+        //return array
+    }
+
+    public function findByTerm(array $params = array('sort_type', 'term')) {
+        //return array
+    }
+
 
 DictionaryCli
     check validation input
