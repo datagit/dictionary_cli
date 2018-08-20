@@ -29,11 +29,11 @@ require_once 'DictionaryCli.php';
 
 //$options = getopt("m:w:e:f:s:");
 $options = array(
-    'm' => $method = 'a',
-    'w' => $word = 'persuade',
+    'm' => $method = 'f',
+    'w' => $word = 'pe',
     'e' => $example = 'eeee',
     'f' => $favorite = '1',
-    's' => $sort_type,
+    's' => $sort_type = 1,
 );
 
 $d = new DictionaryCli();
